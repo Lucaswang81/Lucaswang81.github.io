@@ -1,14 +1,22 @@
 {% assign publications = include.publications %}
+{% assign list_url = include.list_url | default: 'publications' %}
 <div class="my-3 p-0 bg-white shadow-sm rounded-xl">
     <h6 class="border-bottom border-gray p-3 mb-0">
-        {% if include.title %}{{ include.title }}{% else %}<i class="fas fa-star"></i> Selected Recent Publications{% endif %} 
-        <a href="{{ 'publications' | relative_url }}">(view all <i class="fas fa-angle-double-right"></i>)</a>
+        {% if include.title %}{{ include.title }}{% else %}<i class="fas fa-star"></i> Selected Recent Publications{% endif %}
+        <a href="{{ list_url | relative_url }}">(view all <i class="fas fa-angle-double-right"></i>)</a>
     </h6>
     {% for item in publications limit:include.limit %}
-        {% include widgets/publication_item.html item=item first=false last=false %}    
+        {% if include.title_only %}
+        <div class="border-bottom border-gray p-3">
+            <h5 class="mb-0 font-weight-normal">
+                <a href="{{ item.url | relative_url }}" class="text-body">{{ item.title | escape }}</a>
+            </h5>
+        </div>
+        {% else %}
+            {% include widgets/publication_item.html item=item first=false last=false %}
+        {% endif %}
     {% endfor %}
     <h6 class="d-block p-3 mt-0 text-right">
-        <a href="{{ 'publications' | relative_url }}">All publications <i class="fas fa-angle-double-right"></i></a>
+        <a href="{{ list_url | relative_url }}">{{ include.all_label | default: 'All publications' }} <i class="fas fa-angle-double-right"></i></a>
     </h6>
 </div>
-
