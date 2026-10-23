@@ -96,3 +96,13 @@ If you run into **any** issues while using this template, or have suggestions fo
 
 3. Navigate to your created website, and follow the instructions displayed on the homepage (if any) to finalize the setup.
 
+useful commands
+```
+bundle exec jekyll serve
+
+git remote -v
+
+git status
+
+git push -u origin main
+```
