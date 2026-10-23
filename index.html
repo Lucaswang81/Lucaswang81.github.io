@@ -24,6 +24,14 @@ navbar_title: Home
         title='<i class="fas fa-star"></i> Selected Publications'
     %}
 {% endif %}
+{% if site.data.display.homepage.show_selected_projects %}
+    {% assign projects = site.projects | sort: "date" | reverse | where: "selected", true %}
+    {% assign count_projects = projects | size %}
+    {% if count_projects > 0 %}
+        {% include widgets/project_card.html projects=projects %}
+    {% endif %}
+{% endif %}
+
 {% if site.data.display.homepage.show_selected_blogs %}
     {% assign blogs = site.posts | sort: "date" | reverse | where: "selected", true %}
     {% assign count_blogs = blogs | size %}
