@@ -1,6 +1,6 @@
 ---
 layout: blog_post
-selected: true
+selected: false
 title: Science Research Writing For Non-native Speakers Of English
 date: 2026-09-10
 tags:
