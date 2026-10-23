@@ -150,3 +150,13 @@ div.lazy {
         transition: none;
     }
 }
+a {
+    color: #2d7a5e;              /* 默认链接色 */
+    transition: color .2s ease;
+}
+a:hover,
+a:focus {
+    color: #2d7a5e;              /* hover 色 */
+    text-decoration: underline;
+}
+a:visited { color: #2d7a5e; }    /* 可选 */
